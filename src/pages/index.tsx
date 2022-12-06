@@ -1,7 +1,7 @@
 import { type NextPage } from "next";
 import Button from "../components/elements/button";
 import SectionLayout from "../components/layouts/secion";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 const Home: NextPage = () => {
