@@ -18,15 +18,21 @@ const MyApp: AppType<{ session: Session | null }> = ({
       <Head>
         <title>Polliwhirl</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content="Polliwhirl" />
+        <meta
+          name="description"
+          content="Create polls for people, the easy way."
+        />
 
         <meta property="og:title" content="Polliwhirl" />
-        <meta property="og:description" content="Polliwhirl" />
         <meta
-          property="og:image"
-          content="https://polliwhirl.com/og-image.png"
+          property="og:description"
+          content="Create polls for people, the easy way."
         />
+        <meta property="og:image" content="/og-image.png" />
         <meta property="og:url" content="https://polliwhirl.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Polliwhirl" />
+
         <meta name="twitter:card" content="summary_large_image" />
 
         <link rel="icon" href="/favicon.ico" />
