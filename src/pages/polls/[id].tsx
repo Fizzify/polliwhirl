@@ -1,7 +1,6 @@
 import type { GetServerSideProps } from "next";
 import { getSession, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import Button from "../../components/elements/button";
 import SectionLayout from "../../components/layouts/secion";
 import { trpc } from "../../utils/trpc";
@@ -18,20 +17,15 @@ const Poll = () => {
     data: optionsData,
     refetch: optionsRefetch,
     isLoading,
-  } = trpc.poll.getOptionsFromPoll.useQuery(id as string);
+  } = trpc.poll.getOptionsFromPoll.useQuery(id as string, {
+    refetchInterval: 5000,
+  });
   const { mutate } = trpc.poll.voteOption.useMutation({
     onSuccess() {
       pollRefetch();
       optionsRefetch();
     },
   });
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      optionsRefetch();
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [optionsRefetch]);
 
   if (isLoading)
     return (
