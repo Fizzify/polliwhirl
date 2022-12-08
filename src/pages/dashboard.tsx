@@ -12,9 +12,9 @@ const Dashboard = () => {
     return <div>Please login.</div>;
   }
 
-  const { data } = trpc.poll.getPolls.useQuery();
+  const { data, isLoading } = trpc.poll.getPolls.useQuery();
 
-  if (!data) {
+  if (isLoading) {
     return <div>Loading...</div>;
   }
 
@@ -33,7 +33,7 @@ const Dashboard = () => {
         </div>
 
         <div className="my-4 grid grid-cols-4 gap-4">
-          {data.polls.map((poll) => (
+          {data?.polls.map((poll) => (
             <PollItem
               key={poll.id}
               id={poll.id}

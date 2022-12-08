@@ -3,6 +3,7 @@ import Button from "../components/elements/button";
 import SectionLayout from "../components/layouts/secion";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 const Home: NextPage = () => {
   return (
@@ -58,7 +59,7 @@ const Home: NextPage = () => {
             </div>
           </div>
 
-          <img
+          <Image
             className="mx-auto mt-[10%] block animate-bounce"
             width={100}
             height={100}
@@ -68,7 +69,55 @@ const Home: NextPage = () => {
         </div>
       </SectionLayout>
       <SectionLayout>
-        <h1>BE LOUD</h1>
+        <h2 className="text-6xl font-bold">How it works</h2>
+        <p>Still not convinced? Here's how it works.</p>
+        <div className="mt-12 flex-col space-y-12">
+          <div className="flex items-center">
+            <Image
+              className="rounded-2xl border-2 border-white"
+              width={500}
+              height={100}
+              src="/showcase/create-poll.png"
+              alt="Create a poll."
+            />
+            <div className="ml-10">
+              <h3 className="text-4xl font-bold">Create a poll</h3>
+              <p className="text-xl">
+                Create a poll with a question and multiple answers.
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-row-reverse items-center text-right">
+            <Image
+              className="rounded-2xl border-2 border-white"
+              width={500}
+              height={100}
+              src="/showcase/manage-polls.png"
+              alt="Manage your polls."
+            />
+            <div className="mr-10">
+              <h3 className="text-4xl font-bold">Manage polls</h3>
+              <p className="text-xl">
+                You can manage your polls through your dashboard.
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center">
+            <Image
+              className="rounded-2xl border-2 border-white"
+              width={500}
+              height={100}
+              src="/showcase/share-polls.png"
+              alt="Share polls."
+            />
+            <div className="ml-10">
+              <h3 className="text-4xl font-bold">Share polls</h3>
+              <p className="text-xl">
+                Share your polls with friends, or anyone really, and vote!
+              </p>
+            </div>
+          </div>
+        </div>
       </SectionLayout>
     </>
   );

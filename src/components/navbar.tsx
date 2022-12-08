@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { signIn, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Button from "./elements/button";
+import Image from "next/image";
 
 const NavBar: React.FC = () => {
   const { data: session } = useSession();
@@ -8,26 +9,29 @@ const NavBar: React.FC = () => {
     <nav className="container z-[999] mx-auto py-2">
       <div className="flex items-center justify-between">
         <Link href="/">
-          <img src="/full-logo.svg" alt="Polliwhirl." />
+          <Image
+            src="/full-logo.svg"
+            alt="Polliwhirl."
+            width={307}
+            height={100}
+          />
         </Link>
-        <Link href="/sign-in">
-          <Button>{!session ? "Sign In" : "Dashboard"}</Button>
-        </Link>
+        <div className="flex space-x-6">
+          <Link href="/sign-in">
+            <Button>{!session ? "Sign In" : "Dashboard"}</Button>
+          </Link>
+          <Link href="https://github.com/Fizzify/polliwhirl" target="_blank">
+            <Image
+              className="invert transition hover:scale-110"
+              src="/providers/github.svg"
+              alt="Polliwhirl GitHub."
+              width={50}
+              height={50}
+            ></Image>
+          </Link>
+        </div>
       </div>
     </nav>
-  );
-};
-
-interface INavItem {
-  children: React.ReactNode;
-  href: string;
-}
-
-const NavItem: React.FC<INavItem> = ({ children, href }: INavItem) => {
-  return (
-    <li className="text-white">
-      <Link href={href}>{children}</Link>
-    </li>
   );
 };
 
