@@ -70,7 +70,7 @@ const Home: NextPage = () => {
       </SectionLayout>
       <SectionLayout>
         <h2 className="text-6xl font-bold">How it works</h2>
-        <p>Still not convinced? Here's how it works.</p>
+        <p>Still not convinced? Here&apos;s how it works.</p>
         <div className="mt-12 flex-col space-y-12">
           <div className="flex items-center">
             <Image
